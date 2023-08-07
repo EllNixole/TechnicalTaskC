@@ -1,0 +1,60 @@
+﻿@page
+@model List<Student>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            
+            <th>
+                Name
+            </th>
+            <th>
+                University
+            </th>
+            <th>
+                Major
+            </th>
+            <th>
+                Id
+            </th>
+            <th>
+                Grades
+            </th>
+            <th>
+                Attendance
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => student.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.University)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Major)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Grades)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Attendance)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
