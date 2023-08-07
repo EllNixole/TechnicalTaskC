@@ -1,4 +1,5 @@
-﻿using StudentTracker.App.Models;
+﻿using Newtonsoft.Json;
+using StudentTracker.App.Models;
 using System.Text.Json;
 
 namespace StudentTracker.App.Data
@@ -11,7 +12,8 @@ namespace StudentTracker.App.Data
             try
             {
                 string jsonText = File.ReadAllText(filePath);
-                List<Student> students = JsonSerializer.Deserialize<List<Student>>(jsonText);
+                var jsonObject = JsonConvert.DeserializeObject<Dictionary<string, List<Student>>>(jsonText);
+                List<Student> students = jsonObject["students"];
                 return students;
             }
             catch (Exception e) 
